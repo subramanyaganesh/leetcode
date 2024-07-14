@@ -6,7 +6,7 @@ class Solution {
 
     int x=Math.max(0,Math.min(ax2,bx2)-Math.max(ax1,bx1));
     int y=Math.max(0,Math.min(ay2,by2)-Math.max(ay1,by1));
-    System.out.println(x*y);
+    
     return a1Area+b1Area-x*y;
         
     }
