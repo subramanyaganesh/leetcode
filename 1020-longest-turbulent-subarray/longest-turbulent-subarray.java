@@ -1,10 +1,6 @@
 class Solution {
     public int maxTurbulenceSize(int[] arr) {
-        if(arr.length<=2){
-            if(arr.length==1)return 1;
-            else if(arr[0]==arr[1])return 1;
-            else return 2;   
-        }
+        if(arr.length<1)return 1;
         int[] d=new int[arr.length-1];
         int max=0;
 
