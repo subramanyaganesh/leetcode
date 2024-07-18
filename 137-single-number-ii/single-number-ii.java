@@ -1,12 +1,17 @@
 class Solution {
     public int singleNumber(int[] nums) {
         Map<Integer,Integer> map=new HashMap<>();
+        List<Integer> stack=new ArrayList<>();
         for(int i:nums){
-            map.compute(i,(k,v)->v==null?1:v+1);
+            if(!map.containsKey(i)){
+                stack.add(i);
+                map.put(i,1);
+            }else{
+                if(stack.contains(i))stack.remove((Object)i);
+            }
+            
         }
-        PriorityQueue<Map.Entry<Integer,Integer>> pq=new PriorityQueue<>((a,b)->a.getValue()-b.getValue());
-        pq.addAll(map.entrySet());
-        return pq.poll().getKey();
+        return stack.get(0);
 
 
         
