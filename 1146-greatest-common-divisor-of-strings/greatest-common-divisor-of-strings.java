@@ -11,10 +11,8 @@ class Solution {
             min=minFixed=str2;
             max=str1;
         }
-       for(int i=0;!min.isEmpty();i++){
-        if(max.replaceAll(min,"").isEmpty()&&minFixed.replaceAll(min,"").isEmpty()){
-            return min;
-        }
+        
+       while(!(max.replaceAll(min,"").isEmpty()&& minFixed.replaceAll(min,"").isEmpty())&&!min.isEmpty()){
         min=min.substring(0,min.length()-1);
        }
     return min;
