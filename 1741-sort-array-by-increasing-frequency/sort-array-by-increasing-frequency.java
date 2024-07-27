@@ -2,7 +2,8 @@ class Solution {
     public int[] frequencySort(int[] nums) {
         Map<Integer,Integer> map=new HashMap<>();
         for(int i:nums)map.compute(i,(k,v)->v==null?1:v+1);
-        List<Integer> answer=new ArrayList<>();
+        int[] ans=new int[nums.length];
+        int k=0;
         PriorityQueue<Map.Entry<Integer,Integer>> pq=new PriorityQueue<>((a,b)->{
             int val=Integer.compare(a.getValue(),b.getValue());
             if(val==0){
@@ -14,10 +15,10 @@ class Solution {
             Map.Entry<Integer,Integer> entry=pq.poll();
             int m=entry.getValue();
             while(m!=0){
-                answer.add(entry.getKey());
+                ans[k++]=entry.getKey();
                 m--;
             }
         }
-        return answer.stream().mapToInt(a->a).toArray();
+        return ans;
     }
 }
