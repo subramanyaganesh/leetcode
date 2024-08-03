@@ -1,14 +1,12 @@
 class Solution {
     public int rob(int[] nums) {
+        if(nums.length==1)return nums[0];
+        if(nums.length==2)return Math.max(nums[0],nums[1]);
         if(nums.length>2){
             for(int i=2;i<nums.length;i++){
-                int v=0;
-                for(int j=0;j<i-1;j++){
-                    v=Math.max(v,nums[i]+nums[j]);
-                }
-                nums[i]=v;
+                nums[i]=nums[i]+Math.max(nums[i-2],i-3<0?0:nums[i-3]);
             }
         }
-        return Arrays.stream(nums).max().orElse(0);
+        return Math.max(nums[nums.length-1],nums[nums.length-2]);
     }
 }
