@@ -1,15 +1,22 @@
 class Solution {
     public int numDifferentIntegers(String word) {
+
+        String[] ans=word.split("[a-z]");
         Set<String> set=new HashSet<>();
-        String[] result = word.split("[a-zA-Z]");
-        for(String s:result){
-            int n=s.length();
-            if(!s.isEmpty()){
-                while(!s.isEmpty()&&s.charAt(0)=='0')s=s.substring(1);
-                set.add(s);
+        for(String str:ans){
+            if(!str.isEmpty()){
+                int y=0;
+                for(int i=0;i<str.length();i++){
+                    if(str.charAt(i)=='0')y++;
+                    else break;
+                }
+                set.add(str.substring(y));
+                //System.out.println(set);
             }
+            
         }
         return set.size();
+
         
     }
 }
