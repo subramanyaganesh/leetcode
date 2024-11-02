@@ -4,7 +4,7 @@ class Solution {
         int j=0;
         double sum=0;
         double ans=Integer.MIN_VALUE;
-        System.out.println(ans);
+
         while(i<nums.length){
             if(i<k)sum+=nums[i];
             else{
