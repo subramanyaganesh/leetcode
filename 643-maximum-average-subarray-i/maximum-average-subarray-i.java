@@ -3,7 +3,8 @@ class Solution {
         int i=0;
         int j=0;
         double sum=0;
-        double ans=0;
+        double ans=Integer.MIN_VALUE;
+        System.out.println(ans);
         while(i<nums.length){
             if(i<k)sum+=nums[i];
             else{
@@ -12,7 +13,6 @@ class Solution {
             }
             i++;
             if(i-j==k){
-                if(ans==0)ans=(double)sum/k;
                 ans=Math.max(ans,(double)sum/k);
             }
             
