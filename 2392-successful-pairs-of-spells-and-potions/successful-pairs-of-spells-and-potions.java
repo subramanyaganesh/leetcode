@@ -23,6 +23,6 @@ class Solution {
                 j=mid;
             }
         }
-        return i;
+        return j;
     }
 }
