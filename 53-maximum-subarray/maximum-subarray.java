@@ -10,7 +10,7 @@ class Solution {
             }
             max=Math.max(max,sum);
         }
-        return Math.max(max,sum);
+        return max;
         
     }
 }
