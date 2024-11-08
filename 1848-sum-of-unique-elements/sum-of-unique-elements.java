@@ -1,10 +1,12 @@
 class Solution {
     public int sumOfUnique(int[] nums) {
-        Map<Integer,Integer> map=new HashMap<>();
-        for(int i:nums)map.compute(i,(k,v)->v==null?1:v+1);
+        int[] ans=new int[101];
+        for(int i:nums){
+            ans[i]++;
+        }
         int sum=0;
-        for(Map.Entry<Integer,Integer> entry:map.entrySet()){
-            if(entry.getValue()==1)sum+=entry.getKey();
+        for(int i=0;i<ans.length;i++){
+            if(ans[i]==1)sum+=i;
         }
         return sum;
     }
