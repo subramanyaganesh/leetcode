@@ -1,13 +1,19 @@
 class Solution {
     public int sumOfUnique(int[] nums) {
-        int[] ans=new int[101];
-        for(int i:nums){
-            ans[i]++;
-        }
+        Set<Integer> set=new HashSet<>();
+        Set<Integer> duplicate=new HashSet<>();
         int sum=0;
-        for(int i=0;i<ans.length;i++){
-            if(ans[i]==1)sum+=i;
+        int dup=0;
+        for(int i:nums){
+            if(set.contains(i)){
+                if(!duplicate.contains(i)){
+                    dup+=i;
+                    duplicate.add(i);
+                }
+            }else {
+                set.add(i);
+                sum+=i;}
         }
-        return sum;
+        return Math.max(sum-dup,0);
     }
 }
